@@ -41,4 +41,9 @@ class Article extends Model
     {
         return $this->tags()->syncWithoutDetaching($tags);
     }
+
+    public function detachTags($tags)
+    {
+        return $this->tags()->detach($tags);
+    }
 }
