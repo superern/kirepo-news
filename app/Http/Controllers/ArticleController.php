@@ -28,8 +28,9 @@ class ArticleController extends Controller
         return new ArticleResource($article);
     }
 
-    public function update(Request $request, Article $article): ArticleResource
+    public function update(ArticleRequest $request, Article $article): ArticleResource
     {
+        $article->update($request->validated());
         return new ArticleResource($article);
     }
 
