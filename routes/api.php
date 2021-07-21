@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\TagController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,5 @@ Route::get('/news/{article}', [ArticleController::class, 'show']);
 Route::put('/news/{article}', [ArticleController::class, 'update']);
 Route::delete('/news/{article}', [ArticleController::class, 'destroy']);
 Route::post('/news/{article}', [ArticleController::class, 'restore']);
+
+Route::get('/tags', [TagController::class, 'index']);
