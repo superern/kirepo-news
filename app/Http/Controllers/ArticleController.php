@@ -16,11 +16,17 @@ class ArticleController extends Controller
         return ArticleResource::collection($articles);
     }
 
-    public function store(ArticleRequest $request): ArticleResource
+    public function store(ArticleRequest $request)
     {
         $article = Article::create($request->all());
 
-        return new ArticleResource($article);
+        if(!$article->exists)
+            return response(['message'=>'Failed to store your Article'],500);
+
+        return response([
+            'message' => 'Successfully stored your Article',
+            'data' => new ArticleResource($article)
+        ]);
     }
 
     public function show(Article $article): ArticleResource
@@ -28,15 +34,22 @@ class ArticleController extends Controller
         return new ArticleResource($article);
     }
 
-    public function update(ArticleRequest $request, Article $article): ArticleResource
+    public function update(ArticleRequest $request, Article $article)
     {
+        if(!$article->isDirty())
+            return response(['message' => 'No update happened.']);
+
         $article->update($request->validated());
-        return new ArticleResource($article);
+        return response([
+            'message' => 'Successfully deleted Article',
+            'data' => new ArticleResource($article)
+        ]);
     }
 
     public function destroy(Article $article)
     {
         $article->delete();
+        return response(['message' => 'Successfully deleted Article']);
     }
 
     public function restore($id)
