@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TagRequest;
 use App\Http\Resources\TagResource;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -15,9 +16,17 @@ class TagController extends Controller
         return TagResource::collection($tags);
     }
 
-    public function store(Request $request)
+    public function store(TagRequest $request)
     {
+        $tag = Tag::create($request->all());
 
+        if(!$tag->exists)
+            return response(['message' => 'Failed to store your Tag'], 500);
+
+        return response([
+            'message' => 'Successfully stored your Tag',
+            'data' => new TagResource($tag)
+        ]);
     }
 
     public function show(Tag $tag)
