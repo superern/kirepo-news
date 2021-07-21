@@ -36,7 +36,15 @@ class TagController extends Controller
 
     public function update(Request $request, Tag $tag)
     {
-        //
+        $tag->update($request->all());
+
+        if($tag->wasChanged())
+            return response(['message'=>'Nothing was changed.']);
+
+        return response([
+            'message'=>'Successfully updated your Tag',
+            'data' => new TagResource($tag)
+        ]);
     }
 
     public function destroy(Tag $tag)
