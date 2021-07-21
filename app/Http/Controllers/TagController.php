@@ -49,11 +49,26 @@ class TagController extends Controller
 
     public function destroy(Tag $tag)
     {
-        //
+        try {
+            $tag->delete();
+        }catch (\Exception $e){
+            return response(['message'=>'Failed to delete your Tag'],500);
+        }
+
+        return response(['message'=>'Successfully deleted your Tag']);
+
     }
 
     public function restore($id)
     {
+        if(!$tag = Tag::onlyTrashed()->find($id))
+            return response(['message'=>'No recoverable Tag']);
+
+        $tag->restore();
+        return response([
+            'message'=>'Successfully recovered your Tag',
+            'data' => new TagResource($tag)
+        ]);
 
     }
 }
