@@ -38,4 +38,13 @@ class ArticleController extends Controller
     {
         $article->delete();
     }
+
+    public function restore($id)
+    {
+        if(!$article = Article::onlyTrashed()->find($id))
+            return response(['message' => 'No recoverable Article'],404);
+
+        $article->restore();
+        return response(['message' => 'Successfully recovered Article']);
+    }
 }

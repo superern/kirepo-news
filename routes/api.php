@@ -24,3 +24,4 @@ Route::post('/news', [ArticleController::class, 'store']);
 Route::get('/news/{article}', [ArticleController::class, 'show']);
 Route::put('/news/{article}', [ArticleController::class, 'update']);
 Route::delete('/news/{article}', [ArticleController::class, 'destroy']);
+Route::post('/news/{article}', [ArticleController::class, 'restore']);
