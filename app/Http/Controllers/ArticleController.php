@@ -34,12 +34,13 @@ class ArticleController extends Controller
         return new ArticleResource($article);
     }
 
-    public function update(ArticleRequest $request, Article $article)
+    public function update(Request $request, Article $article)
     {
-        if(!$article->isDirty())
-            return response(['message' => 'No update happened.']);
+        $article->update($request->all());
 
-        $article->update($request->validated());
+        if(!$article->wasChanged())
+            return response(['message'=>'Nothing was changed']);
+
         return response([
             'message' => 'Successfully deleted Article',
             'data' => new ArticleResource($article)
