@@ -15,29 +15,19 @@ class ArticleController extends Controller
         return ArticleResource::collection($articles);
     }
 
-    public function create()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
         //
     }
 
-    public function show(Article $article)
+    public function show(Article $article): ArticleResource
     {
-        //
+        return new ArticleResource($article);
     }
 
-    public function edit(Article $article)
+    public function update(Request $request, Article $article): ArticleResource
     {
-        //
-    }
-
-    public function update(Request $request, Article $article)
-    {
-        //
+        return new ArticleResource($article);
     }
 
     public function destroy(Article $article)
