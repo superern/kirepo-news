@@ -30,4 +30,15 @@ class Article extends Model
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
     }
+
+    public function tags(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class)
+            ->withTimestamps();
+    }
+
+    public function attachTags($tags)
+    {
+        return $this->tags()->syncWithoutDetaching($tags);
+    }
 }

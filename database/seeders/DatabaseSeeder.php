@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
          User::factory(3)->create();
          $this->call(ArticleSeeder::class);
          $this->call(TagSeeder::class);
+         $this->call(ArticleTagSeeder::class);
     }
 }

@@ -23,4 +23,10 @@ class Tag extends Model
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
     }
+
+    public function articles(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Article::class)
+            ->withTimestamps();
+    }
 }
