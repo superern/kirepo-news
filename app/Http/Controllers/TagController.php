@@ -11,7 +11,7 @@ class TagController extends Controller
 {
     public function index()
     {
-        $tags = Tag::filter()->paginate(10);
+        $tags = Tag::filter()->paginate(5);
 
         return TagResource::collection($tags);
     }
