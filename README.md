@@ -20,6 +20,7 @@ In order to run this project locally, you need the following:
     - `pdo_sql`
     - `sqlite3`
         - we will be using sqlite
+- create `database.sqlite` under **database** folder
 
     
 ## Commands
@@ -27,7 +28,9 @@ In order to run this project locally, you need the following:
 Assuming project already cloned
 
 - `composer install`
+- ``php artisan key:generate``  
 - `php artisan migrate --seed`
+- `cp .env-example .env`
 - When using Windows
     - start your Laragon (accessible via http://projectname.test:80)
 
