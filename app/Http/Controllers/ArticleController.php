@@ -16,6 +16,13 @@ class ArticleController extends Controller
         return ArticleResource::collection($articles);
     }
 
+    public function trashes()
+    {
+        $articles = Article::onlyTrashed()->paginate(10);
+
+        return ArticleResource::collection($articles);
+    }
+
     public function store(ArticleRequest $request)
     {
         $article = Article::create($request->all());

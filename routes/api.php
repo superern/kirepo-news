@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/news', [ArticleController::class, 'index']);
+Route::get('/news/trashes', [ArticleController::class, 'trashes']);
 Route::post('/news', [ArticleController::class, 'store']);
 Route::get('/news/{article}', [ArticleController::class, 'show']);
 Route::put('/news/{article}', [ArticleController::class, 'update']);
