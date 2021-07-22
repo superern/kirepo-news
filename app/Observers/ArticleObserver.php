@@ -14,7 +14,7 @@ class ArticleObserver
      */
     public function created(Article $article)
     {
-        //
+        $article->update(['published_at' => now()]);
     }
 
     /**
