@@ -42,7 +42,7 @@ class ArticleController extends Controller
             return response(['message'=>'Nothing was changed']);
 
         return response([
-            'message' => 'Successfully deleted Article',
+            'message' => 'Successfully updated Article',
             'data' => new ArticleResource($article)
         ]);
     }
