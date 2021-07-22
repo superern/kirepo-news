@@ -11,7 +11,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::latest()->paginate(10);
+        $articles = Article::filter()->paginate(10);
 
         return ArticleResource::collection($articles);
     }

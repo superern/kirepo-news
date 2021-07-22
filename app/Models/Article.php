@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Mehradsadeghi\FilterQueryString\FilterQueryString;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 class Article extends Model
 {
-    use HasFactory, SoftDeletes, HasSlug;
+    use HasFactory, SoftDeletes, HasSlug, FilterQueryString;
 
     protected $fillable = [
         'title',
@@ -22,6 +23,8 @@ class Article extends Model
     protected $casts = [
         'is_published' => 'boolean',
     ];
+
+    protected $filters = ['sort', 'like', 'title', 'content', 'is_published'];
 
     public function getSlugOptions(): SlugOptions
     {
