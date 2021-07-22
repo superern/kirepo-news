@@ -36,12 +36,18 @@ Assuming project already cloned
 
 Voila! Access your news APIs now.
 
-## URIs
+## SCREENSHOTS
+<img src="https://i.ibb.co/w4MB3P0/download.png" />
+<img src="https://i.ibb.co/16vDpxH/download-1.png" />
+<img src="https://i.ibb.co/bWY46tP/download-2.png" />
+<img src="https://i.ibb.co/74sSKQr/download-3.png" />
+<img src="https://i.ibb.co/PZQ9mfH/download-4.png" />
+<img src="https://i.ibb.co/CHq9gWH/download-5.png" />
+<img src="https://i.ibb.co/rfZr7S2/download-6.png" />
+<img src="https://i.ibb.co/7JFBXd0/download-7.png" />
+<img src="https://i.ibb.co/sgf2RzB/download-8.png" />
+<img src="https://i.ibb.co/937sNcQ/download-9.png" />
 
-- GET `/api/news`
-- POST `/api/news`
-- UPDATE `/api/news`
-- DELETE `/api/news`
 
 
 ### Premium Partners
