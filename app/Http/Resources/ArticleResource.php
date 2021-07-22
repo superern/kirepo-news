@@ -21,7 +21,7 @@ class ArticleResource extends JsonResource
             'is_published' => $this->is_published,
             'published_at' => $this->published_at,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated,
+            'updated_at' => $this->updated_at,
             'tags' => TagResource::collection($this->tags)
         ];
     }
