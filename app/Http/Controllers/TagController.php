@@ -16,6 +16,13 @@ class TagController extends Controller
         return TagResource::collection($tags);
     }
 
+    public function trashes()
+    {
+        $articles = Tag::onlyTrashed()->paginate(10);
+
+        return TagResource::collection($articles);
+    }
+
     public function store(TagRequest $request)
     {
         $tag = Tag::create($request->all());
@@ -38,7 +45,7 @@ class TagController extends Controller
     {
         $tag->update($request->all());
 
-        if($tag->wasChanged())
+        if(!$tag->wasChanged())
             return response(['message'=>'Nothing was changed.']);
 
         return response([

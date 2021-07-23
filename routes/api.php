@@ -29,6 +29,7 @@ Route::delete('/news/{article}', [ArticleController::class, 'destroy']);
 Route::post('/news/{article}', [ArticleController::class, 'restore']);
 
 Route::get('/tags', [TagController::class, 'index']);
+Route::get('/tags/trashes', [TagController::class, 'trashes']);
 Route::post('/tags', [TagController::class, 'store']);
 Route::get('/tags/{tag}', [TagController::class, 'show']);
 Route::put('/tags/{tag}', [TagController::class, 'update']);
